@@ -1,0 +1,14 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+int main()
+{
+	char A[10];
+	printf("Enter String: ");
+	gets_s(A);
+	printf("%s", A);
+	int size = strlen(A);
+	printf("\nLength of this string: (%s) is %d", A, size);
+
+	_getch();
+}
