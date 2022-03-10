@@ -1,0 +1,58 @@
+#include<stdio.h>
+#include<conio.h>
+
+int BinarySearch(int A[], int left, int right, int data)
+{
+	while (left <= right)
+	{
+		int mid = (left + right) / 2;
+		if (data == A[mid])
+		{
+			return mid;
+		}
+		else if (data < A[mid])
+		{
+			right = mid - 1;
+		}
+		else if (data > A[mid])
+		{
+			left = mid + 1;
+		}
+	}
+	return -1;
+}
+
+int main()
+{
+	int A[10], size, data;
+	printf("Enter the size of Array: ");
+	scanf_s("%d", &size);
+
+	printf("Enter the Elements of the Array:\n");
+	for (int i = 0; i < size; i++)
+	{
+		scanf_s("%d", &A[i]);
+	}
+
+	printf("Elements are: ");
+	for (int j = 0; j < size; j++)
+	{
+		printf("%d, ", A[j]);
+	}
+
+	printf("\nEnter the data you Want to Search: ");
+	scanf_s("%d", &data);
+
+	int result = BinarySearch(A, 0, size-1, data);
+	if (result == -1)
+	{
+		printf("data not present in the Array");
+	}
+	else
+	{
+		printf("Found %d in the array at position %d ", data, result);
+	}
+
+	_getch();
+}
+
