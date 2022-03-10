@@ -1,0 +1,46 @@
+#include<stdio.h>
+#include<conio.h>
+#define max_size 10
+int main()
+{
+	int A[max_size], size, i, item, posi;
+	printf("Enter the size of the Array: ");
+	scanf_s("%d", &size);
+
+	printf("Enter the Elements of the Array:\n");
+	for (i = 0; i < size; i++)
+	{
+		scanf_s("%d", &A[i]);
+	}
+	printf("The Array Elements are: ");
+	for (i = 0; i < size; i++)
+	{
+		printf("%d ", A[i]);
+	}
+	printf("\nEnter the item you want to Delete: ");
+	scanf_s("%d", &item);
+	printf("\nEnter the Location for the item in Array: ");
+	scanf_s("%d", &posi);
+	
+	
+	if (item <0 || posi>size)
+	{
+		printf("Invalid Input!!!");
+	}
+	else
+	{
+		for (i = posi-1; i < size-1; i++)
+		{
+			A[i] = A[i+1];
+		}
+		
+		size--;
+		printf("After delete the %d from the Array: ", item);
+		for (i = 0; i < size; i++)
+		{
+			printf("%d ", A[i]);
+		}
+	}
+
+	_getch();
+}

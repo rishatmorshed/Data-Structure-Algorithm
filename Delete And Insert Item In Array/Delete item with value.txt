@@ -1,0 +1,52 @@
+#include<stdio.h>
+#include<conio.h>
+
+int main()
+{
+	int A[5], size, i, value, temp=-1;
+	printf("Enter the size of the Array: ");
+	scanf_s("%d", &size);
+	printf("\nEnter the elements of the Array:\n");
+	for (i = 0; i < size; i++)
+	{
+		scanf_s("%d", &A[i]);
+	}
+	printf("\nArray elements are:");
+	for (i = 0; i < size; i++)
+	{
+		printf("%d ", A[i]);
+	}
+
+	printf("\nEnter the value you want to delete: ");
+	scanf_s("%d", &value);
+
+	
+	for (i = 0; i < size; i++)
+	{
+		if (A[i] == value)
+		{
+			temp = i;
+		}
+	}
+	if (temp != -1)// we know Array index number can not negative
+	{
+		for (i = temp; i < size; i++)
+		{
+			A[i] = A[i + 1];
+		}
+		size--;
+
+		printf("After delete %d from the Array: ", value);
+		for (i = 0; i < size; i++)
+		{
+			printf("%d ", A[i]);
+		}
+	}
+
+	else
+	{
+		printf("%d Not found in this Array", value);
+	}
+
+	_getch();
+}
