@@ -1,0 +1,48 @@
+#include<stdio.h>
+#include<conio.h>
+#define MAX_SIZE 10
+int main()
+{
+	int A[MAX_SIZE], i, j, size, temp, flag;
+	printf("Enter the size of the Array:");
+	scanf_s("%d", &size);
+
+	printf("\nEnter the Elements of the Array:\n");
+	for (i = 0; i < size; i++)
+	{
+		scanf_s("%d", &A[i]);
+	}
+
+	printf("Before Sorting the Array: ");
+	for (i = 0; i < size; i++)
+	{
+		printf(" %d ", A[i]);
+	}
+
+	for (i = 0; i < size - 1; i++)
+	{
+		flag = 0; // for time consuming use a flag
+		for (j = 0; j < size - i - 1 ; j++)
+		{
+			if (A[j] > A[j + 1])
+			{
+				temp = A[j];
+				A[j] = A[j + 1];
+				A[j + 1] = temp;
+				flag = 1;
+			}
+		}
+		if (flag == 0)   // for time consuming 
+		{
+			break;		// This is not check Which already sorted
+		}				// this break exit from the loop and go print line
+	}
+	printf("\nAfter sorting the Array: ");
+	for (j = 0; j < size; j++)
+	{
+		printf(" %d ", A[j]);
+	}
+
+
+	_getch();
+}
