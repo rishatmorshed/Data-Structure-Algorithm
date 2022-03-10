@@ -1,0 +1,30 @@
+#include<stdio.h> 
+#include<string.h>
+#include<conio.h>
+int main()
+{
+    char name[10];
+    int  i, j, size, temp;
+    printf("Enter the string: ");
+    gets_s(name);
+    size = strlen(name);
+    
+    for (i = 0; i < size; i++)
+    {
+        for (j = i + 1; j < size; j++)
+        {
+            if (name[j] < name[i])
+            {
+                temp = name[i];
+                name[i] = name[j];
+                name[j] = temp;
+            }
+        }
+    }
+    printf("After swap this string: ");
+    printf("\n%s", name);
+
+
+    _getch();
+}
+
