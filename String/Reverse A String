@@ -1,0 +1,21 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+int main()
+{
+	char A[10];
+	printf("Enter A string: ");
+	gets_s(A);
+	printf("%s",A);
+	int size = strlen(A);  // Find the size of the string
+	for (int i = 0; i < size / 2; i++)
+	{
+		int ch = A[i];  // Put A[i] value in a temporary variable
+		A[i] = A[size - 1 - i];  // swapping logic
+		A[size - 1 - i] = ch;    
+	}
+	printf("\nAfter Reverse this string: %s", A);
+
+
+	return 0;
+}
