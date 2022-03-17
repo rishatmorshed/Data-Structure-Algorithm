@@ -1,0 +1,34 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+struct student
+{
+	char name[10];
+	int id; 
+	float marks;
+};
+int main()
+{
+	int i, size;
+	struct student A[10];
+  printf("Enter the size of the Array: ");
+  scanf_s("%d", &size);
+  
+	for (i = 0; i < size; i++)
+	{
+		printf("Enter information for student %d:\n", i+1);
+		printf("Name: ");
+		scanf_s("%s", A[i]);
+		printf("id: ");
+		scanf_s("%d", &A[i].id);
+		printf("Marks: ");
+		scanf_s("%f", &A[i].marks);
+	}
+	
+	for ( i = 0; i < size; i++)
+	{
+		printf("\nInformation for student %d:\n", i+1);
+		printf("Name = %s \nID =%d\nMarks =%f",A[i].name, A[i].id, A[i].marks);
+	}
+
+}
