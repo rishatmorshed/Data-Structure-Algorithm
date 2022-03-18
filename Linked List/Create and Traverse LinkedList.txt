@@ -1,0 +1,76 @@
+#include<stdio.h>
+#include<conio.h>
+#include <malloc.h>
+struct node
+{
+	int data;
+	struct node* next;
+}*head;
+
+void CreatList(int size);
+void DisplayList();
+
+int main()
+{
+	int size;
+	printf("Enter Number of the Nodes: ");
+	scanf_s("%d", &size);
+	CreatList(size);
+	printf("\nData of this List:\n");
+	DisplayList();
+
+	return 0;
+}
+
+void CreatList(int size)
+{
+	struct node *temp, *NewNode;
+	int data, i;
+	head = (struct node*)malloc(sizeof(struct node));
+	if(head == NULL)
+	{
+		printf("Memory cannot Allocated!!");
+	}
+	else
+	{
+		printf("Enter data for node 1: ");
+		scanf_s("%d", &data);
+		head->data = data;
+		head->next = NULL;
+	}
+	temp = head;
+	for (i = 2; i <= size; i++)
+	{
+		NewNode = (struct node*)malloc(sizeof(struct node));
+		if (NewNode == NULL)
+		{
+			printf("Memory cannot Allocated!!!");
+			break;
+		}
+		else
+		{
+			printf("Enter data for node %d: ", i);
+			scanf_s("%d", &data);
+			NewNode->data = data;
+			NewNode->next = NULL;
+			temp->next = NewNode;
+			temp = temp->next;
+		}
+	}
+	
+
+}
+
+void DisplayList()
+{
+	int i = 0;
+	struct node* temp;
+	temp = head;
+	while (temp != NULL)
+	{
+		i++;
+		printf("Data In node %d = %d\n", i,temp->data);
+		temp = temp->next;
+		
+	}
+}
