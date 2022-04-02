@@ -1,36 +1,42 @@
 #include<stdio.h>
 #include<conio.h>
-#define MAX_SIZE 10
+
 int main()
 {
-	int A[MAX_SIZE], size, i, position, num;
+	int A[5], size, i, data;
 
 	printf("Enter the size of the Array: ");
 	scanf_s("%d", &size);
-
-	printf("Enter the elements of the Array:\n");
+	printf("Enter the elements of the array:\n");
 	for (i = 0; i < size; i++)
 	{
-		scanf_s("%d", &A[i]);
+		scanf_s("%d" , &A[i]);
+	}
+	printf("Array elements are: ");
+	for (i = 0; i < size; i++)
+	{
+		printf("%d ", A[i]);
 	}
 
-	printf("Enter the Number you want to Search: ");
-	scanf_s("%d", &num);
-
-		for (i = 0; i < size; i++)
+	printf("\nEnter the data you want to search : ");
+	scanf_s("%d", &data);
+	for (i = 0; i < size; i++)
+	{
+		if (A[i] == data)
 		{
-			if (A[i] == num)
-			{
-				i = i + 1;
-			}
-
+			i++;
+			printf("\n%d found at %d position", data, i);
 		}
-		printf("After search from the Array:\n %d Found at position %d: ", num, i);
-
-		
-		
-		_getch();
+		else
+		{
+			printf("Data not present in the Array!!!");
+			break;
+		}
 	}
+	
+	
 
 
 
+	return 0;
+}
