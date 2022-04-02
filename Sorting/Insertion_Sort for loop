@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<conio.h>
+
+int main()
+{
+	int A[5], size, i, j, temp;
+
+	printf("Enter the size of the Array: ");
+	scanf_s("%d", &size);
+	printf("Enter the elements of the array:\n");
+	for (i = 0; i < size; i++)
+	{
+		scanf_s("%d" , &A[i]);
+	}
+	printf("Array elements are: ");
+	for (i = 0; i < size; i++)
+	{
+		printf("%d ", A[i]);
+	}
+
+	for (i = 1; i < size; i++)
+	{
+		temp = A[i];
+		for (j = i - 1; j >= 0 && A[j] > temp; j--)
+		{
+			A[j + 1] = A[j];
+		}
+		A[j + 1] = temp;
+	}
+	printf("\nAfter applay Insertion sort: ");
+	for (i = 0; i < size; i++)
+	{
+		printf("%d ", A[i]);
+	}
+
+	return 0;
+}
+
