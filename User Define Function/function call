@@ -1,0 +1,73 @@
+/*#include<stdio.h>
+#include<conio.h>
+
+void AddNum();	// This is Function ProtoTyp. Use it for identify the calling function
+
+int main()
+{
+	AddNum();		//Function call
+	return 0;
+}
+void AddNum()
+{
+	int a, b, result;
+	printf("Enter two number: ");
+	scanf_s("%d%d", &a, &b);
+	result = a + b;
+	printf("SUM = %d", result);
+}*/
+
+
+//#2->  Catch the return value in main function in a variable 
+#include<stdio.h>
+#include<conio.h>
+//No need to add function Prototype, Because we write the functon at the top of the code.
+int AddNum()
+{
+	int x, y, sum;
+	printf("Enter two number: ");
+	scanf_s("%d%d", &x, &y);
+	sum = x + y;
+	return sum;
+}
+int main()
+{
+	int result = AddNum(); // Here AddNum function return sum value. And we store it in result
+	printf("Result = %d", result);
+}
+
+
+
+
+
+
+// parameret pass value from main to user define function
+/*
+#include<stdio.h>
+#include<conio.h>
+int AddNum(int i, int j);
+
+int main ()
+{
+	int x, y;
+	printf("Enter two number: ");
+	scanf_s("%d%d", &x, &y);
+	AddNum(x , y);  // Parameter pass the value of x and y in Calling function AddNum
+	
+	return 0;
+}
+
+int AddNum(int i, int j)
+{
+	
+	if (i > j)
+	{
+		printf("%d is Greater", i);
+	}
+	else
+	{
+		printf("%d is Greater", j);
+	}
+	return 0;
+}*/
+
