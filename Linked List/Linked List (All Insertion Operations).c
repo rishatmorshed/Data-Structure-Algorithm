@@ -78,13 +78,13 @@ void addMid(struct node** head, int size)
 	}
 	else
 	{
-		for (i = 1; i < 2; i++)
+		for (i = 1; i < 2; i++)  // Loop size is 2 because user want to insert 1 node at one iteration
 		{
 			printf("Enter the position for Insert new node: ");
 			scanf_s("%d", &posi);
 			if (posi > size)
 			{
-				printf("Invalid Position!!!");
+				printf("Invalid Position!!!\n");
 			}
 			else
 			{
