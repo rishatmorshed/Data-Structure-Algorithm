@@ -10,7 +10,7 @@ void display(struct node* head);
 struct node{
 	int data;
 	struct node* next;
-}head;
+};
 
 
 int main()
