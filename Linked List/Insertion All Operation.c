@@ -2,16 +2,15 @@
 #include<conio.h>
 #include<malloc.h>
 
+struct node{
+	int data;
+	struct node* next;
+}*head;
+
 int addFirst(struct node **head);
 void addMid(struct node **head, int value);
 void addEnd(struct node **head, int value);
 void display(struct node* head);
-
-struct node{
-	int data;
-	struct node* next;
-}head;
-
 
 int main()
 {
