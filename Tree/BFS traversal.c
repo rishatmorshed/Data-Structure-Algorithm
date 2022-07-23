@@ -24,7 +24,7 @@ int main()
 		}
 	}
 
-	printf("Enter the number of starting vertex: ");
+	printf("Enter the starting vertex number: ");
 	scanf_s("%d", &vertex);
 	rear = front = 0;  // when we insert data in queue then both rear and front will in 0 index
 	queue[rear] = vertex; // Insert form rear. 
