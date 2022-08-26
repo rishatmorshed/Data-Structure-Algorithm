@@ -48,8 +48,8 @@ int main()
 	int n, e, data; // n is total no of nodes, e is total number edges
 	cin >> n >> e;
     vector<pair<int, pair<int, int> > > edges; /*creating vector for 
-    										  sort edges based on weight.
-											  and kon duita noder moddhe edge ache*/
+						sort edges based on weight.
+  					        and kon duita noder moddhe edge ache*/
 
 	for(int i = 0; i<e; i++)
 	{
@@ -65,7 +65,7 @@ int main()
 
 	int total_weight = 0;
 	for(auto &edge : edges) /* find minimum weight and
-							   check it would make cycle or not*/ 
+				   check would it make a cycle or not*/ 
 	{
 		int wt = edge.first; 		 //weight of edge
 		int u = edge.second.first;   //first vertex of edge
@@ -79,7 +79,7 @@ int main()
 			Union(u, v);
 		}
 		total_weight += wt;
-		cout<< u <<" "<< v<<endl;
+		cout<< u <<"->"<< v<<" = "<< wt <<endl;
 	}	
 	cout<<"The minimum weight is : "<<total_weight<<endl;
 }
