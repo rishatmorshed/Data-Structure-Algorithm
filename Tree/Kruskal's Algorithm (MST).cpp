@@ -79,7 +79,7 @@ int main()
 			Union(u, v);
 		}
 		total_weight += wt;
-		cout<< u <<"->"<< v<<" = "<< wt <<endl;
+		cout<< u <<" <-> "<< v <<" = "<< wt <<endl;
 	}	
 	cout<<"The minimum weight is : "<<total_weight<<endl;
 }
