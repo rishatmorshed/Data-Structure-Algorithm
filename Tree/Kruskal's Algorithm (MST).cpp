@@ -45,9 +45,9 @@ void Union(int A, int B)
 
 int main()
 {
-	int n, e, data; // n is total no of nodes, e is total number edges
+	int n, e; // n is total no of nodes, e is total number edges
 	cin >> n >> e;
-    vector<pair<int, pair<int, int> > > edges; /*creating vector for 
+  	vector<pair<int, pair<int, int> > > edges; /*creating vector for 
 						sort edges based on weight.
   					        and kon duita noder moddhe edge ache*/
 
