@@ -20,11 +20,11 @@ int find(int v)
 	}
 	else{
 		return parent[v] = find(parent[v]); /*if v is not parent of v
-								then find the parent of v and 
-								all the node which are visited 
-								during find the root stored in 
-								parent[v] and return 
-								(Its called path compress)*/
+						      then find the parent of v and 
+						      all the node which are visited 
+						      during find the root stored in 
+					       	      parent[v] and return 
+						      (Its called path compress)*/
 	}
 }
 void Union(int A, int B)
@@ -73,7 +73,7 @@ int main()
 		if(find(u) == find(v)) // find u and v parent is same of not
 		{
 			continue;  /*breaks one iteration (in the loop)
-						and continues with the next iteration in the loop */
+				     and continues with the next iteration in the loop */
 		}
 		else{
 			Union(u, v);
