@@ -16,7 +16,7 @@ int fib(int n){
 int main()
 {
 	memset(dp, -1, sizeof(dp)); /* we can use for loop also
-								to initialize array index as -1*/
+				       to initialize array index as -1*/
 	int n;
 	cin>>n;
 	cout<<fib(n);
