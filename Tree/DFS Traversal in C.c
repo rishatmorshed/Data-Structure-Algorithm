@@ -2,7 +2,7 @@
 #include<conio.h>
 
 int A[10][10], visited[10], size;
-void BFS_Traversal(int vertex);
+void DFS_Traversal(int vertex);
 
 int main()
 {
@@ -26,12 +26,12 @@ int main()
 	printf("\nDFS traversal is : ");
 	visited[vertex] = 1; // Mark strating vertex as visited
 	printf("%d", vertex);
-	BFS_Traversal(vertex);
+	DFS_Traversal(vertex);
 
 	return 0;
 }
 
-void BFS_Traversal(int vertex)
+void DFS_Traversal(int vertex)
 {
 	for (int i = 0; i < size; i++)
 	{
