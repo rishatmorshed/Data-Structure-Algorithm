@@ -1,0 +1,203 @@
+package DSA;
+
+class practice{
+    node_n<Integer> head;
+    node_n<Integer> tail;
+    int size;
+    practice(){
+        this.head = null;
+        this.size = 0;
+    }
+    public void insert_head(int data){
+        node_n<Integer> new_node = new node_n<>(data);
+        if (head == null){
+            head = new_node;
+            tail = new_node;
+            size ++;
+            return;
+        }
+        new_node.next = head;
+        head = new_node;
+        size ++;
+    }
+    public void tail_insertion(int data){
+        node_n<Integer> new_node = new node_n<>(data);
+        if (head == null){
+            head = new_node;
+            tail = new_node;
+            size ++;
+            return;
+        }
+        tail.next = new_node;
+        tail = new_node;
+        size ++;
+
+    }
+
+    public void insertAtAnyPos(int data, int pos){
+        node_n<Integer> new_node = new node_n<>(data);
+        node_n<Integer> temp;
+        if (pos > size+1 || pos <= 0){
+            System.out.println("Invalid position");
+            return;
+        }
+        if (pos == 1){
+            insert_head(data);
+            return;
+        }
+        else if (pos == size + 1){
+            tail_insertion(data);
+            return;
+        }
+        else {
+            temp = head;
+            int cout = 1;
+            while(cout < pos -1 && temp.next != null){
+                temp = temp.next;
+                cout += 1;
+            }
+            new_node.next = temp.next;
+            temp.next = new_node;
+            size++;
+        }
+    }
+    public void deleteHead(){
+        if (head == null){
+            System.out.println("List is empty nothing to delete");
+            return;
+        } else if (size == 1) {
+            System.out.println(head.data + " Only node in list was deleted successfully");
+            head = null;
+            tail = null;
+        }
+        else {
+            node_n<Integer> temp;
+            temp = head;
+            head = head.next;
+            temp.next = null;
+            System.out.println(temp.data + " Head node deleted successful");
+        }
+        size --;
+    }
+
+    public void deleteTail(){
+        if (head == null){
+            System.out.println("List is empty nothing to delete");
+            return;
+        } else if (size == 1) {
+            System.out.println(head.data + " Only node in list deleted successfully");
+            head = null;
+            tail = null;
+            return;
+        }
+        else{
+            node_n<Integer> temp;
+            node_n<Integer> prev = null;
+            temp = head;
+            while(temp.next != null){
+                prev = temp;
+                temp = temp.next;
+            }
+            prev.next = null;
+            tail = prev;
+            System.out.println("Tail node deleted successfully");
+        }
+        size --;
+    }
+
+    public void deleteFromPositionTo_N(int pos){
+        if (head == null){
+            System.out.println("List is empty nothing to delete");
+            return;
+        } else if (pos <= 0 || pos > size + 1) {
+            System.out.println("Invalid Position!");
+        } else if (pos == 1) {
+            // delete everything
+            head = null;
+            tail = null;
+            size = 0;
+            System.out.println("All nodes deleted");
+            return;
+        }
+        else if (pos == size){
+            deleteTail();
+            return;
+        }
+        else{
+            node_n<Integer> temp = head;
+            int count = 1;
+            while (count < pos - 1) {
+                temp = temp.next;
+                count++;
+            }
+            // temp is node before 'pos'
+            temp.next = null;
+            tail = temp;
+            size = pos - 1;
+            System.out.println("Deleted nodes from position " + pos + " to end");
+        }
+    }
+
+    public void deleteAnyPosition(int pos){
+        if (head == null){
+            System.out.println("List is empty nothing to delete");
+            return;
+        } else if (pos <= 0 || pos > size + 1) {
+            System.out.println("Invalid Position!");
+        } else if (pos == 1) {
+            deleteHead();
+            return;
+        }
+        else if (pos == size){
+            deleteTail();
+            return;
+        }
+        else{
+            node_n<Integer> temp;
+            node_n<Integer> prev = null;
+            temp = head;
+            int count = 1;
+            while(count < pos && temp != null){
+                prev = temp;
+                temp = temp.next;
+                count++;
+            }
+            prev.next = temp.next;
+            temp.next = null;
+            System.out.println(pos + " Node deleted successfully");
+        }
+        size --;
+    }
+
+    void printlist(){
+        node_n<Integer> temp = head;
+        while(temp != null){
+            System.out.print(temp.data + " -> ");
+            temp = temp.next;
+        }
+        System.out.println("null");
+    }
+
+    public static void main(String[] args) {
+        practice ob = new practice();
+        ob.insert_head(20);
+        ob.insert_head(10);
+        ob.tail_insertion(30);
+        ob.tail_insertion(40);
+        ob.tail_insertion((50));
+        ob.tail_insertion((60));
+//        ob.deleteHead();
+//        ob.deleteTail();
+        ob.deleteAnyPosition(1);
+        ob.printlist();
+    }
+}
+
+class node<T>{
+    T data;
+    node_n<T> next;
+    node(T data){
+        this.data = data;
+        this.next = null;
+    }
+}

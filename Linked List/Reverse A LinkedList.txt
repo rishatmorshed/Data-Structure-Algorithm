@@ -1,0 +1,44 @@
+package DSA;
+
+public class ReverseList {
+    public static void main(String[] args) {
+        node_n<Integer> head = new node_n<>(1);
+        head.next = new node_n<>(2);
+        head.next.next = new node_n<>(3);
+        head.next.next.next = new node_n<>(4);
+        head.next.next.next.next = new node_n<>(5);
+        reverseAlist(head);
+    }
+
+    static void reverseAlist(node_n<Integer> head) {
+        node_n<Integer> current = head;
+        node_n<Integer> prev = null;
+        node_n<Integer>next = null;
+        while(current != null){
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        head = prev;
+        print_list(head);
+    }
+
+    static void print_list(node_n<Integer> head) {
+        node_n<Integer> temp = head;
+        while(temp != null){
+            System.out.print(temp.data + " -> ");
+            temp = temp.next;
+        }
+        System.out.println("null");
+    }
+}
+
+class node_n<T> {
+    T data;
+    node_n<T> next;
+    node_n(T data) {
+        this.data = data;
+        this.next = null;
+    }
+}
